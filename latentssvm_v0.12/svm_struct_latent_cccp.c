@@ -564,7 +564,7 @@ int main(int argc, char* argv[]) {
   /* some training information */
   printf("C: %.8g\n", C);
   printf("epsilon: %.8g\n", epsilon);
-  printf("sample.n: %ld\n", sample.n); 
+  printf("sample.n: %d\n", sample.n); 
   printf("sm.sizePsi: %ld\n", sm.sizePsi); fflush(stdout);
   
 

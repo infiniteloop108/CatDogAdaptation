@@ -20,27 +20,29 @@ typedef struct pattern {
   /*
     Type definition for input pattern x
   */
-  int add_your_own_variables;
+  float *data;  // concatenation of all the features, dimension*no_of_rects
+  int no_of_rects; // number of such features for each xi, ie no of h
 } PATTERN;
 
 typedef struct label {
   /*
     Type definition for output label y
   */
-  int add_your_own_variables;
+  int class_id;  // +1 means object present, -1 means not present
 } LABEL;
 
 typedef struct latent_var {
   /*
     Type definition for latent variable h
   */
-  int add_your_own_variables;
+  int box;	//Bounding box number 
 } LATENT_VAR;
 
 typedef struct example {
   PATTERN x;
   LABEL y;
   LATENT_VAR h;
+  char file_name[40];
 } EXAMPLE;
 
 typedef struct sample {
