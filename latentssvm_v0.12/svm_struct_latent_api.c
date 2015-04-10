@@ -27,7 +27,6 @@ SAMPLE read_struct_examples(char *file, STRUCT_LEARN_PARM *sparm) {
   initialized in this function or by calling init_latent_variables(). 
 */
   SAMPLE sample;
-  
   /* your code here */
 
   return(sample); 

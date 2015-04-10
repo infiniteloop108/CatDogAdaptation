@@ -3,3 +3,4 @@ trainval*
 mosek/*
 latentssvm_v0.11*
 VOCdevkit*
+*.o

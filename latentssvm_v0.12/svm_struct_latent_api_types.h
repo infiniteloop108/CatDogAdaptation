@@ -22,13 +22,14 @@ typedef struct pattern {
   */
   float *data;  // concatenation of all the features, dimension*no_of_rects
   int no_of_rects; // number of such features for each xi, ie no of h
+  int dimension; //Dimension of each feature
 } PATTERN;
 
 typedef struct label {
   /*
     Type definition for output label y
   */
-  int class_id;  // +1 means object present, -1 means not present
+  int class_id;  // +1 means object (Cat or Dog) present, -1 means not present
 } LABEL;
 
 typedef struct latent_var {
