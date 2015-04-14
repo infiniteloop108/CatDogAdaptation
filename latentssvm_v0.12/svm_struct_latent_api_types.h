@@ -43,7 +43,7 @@ typedef struct example {
   PATTERN x;
   LABEL y;
   LATENT_VAR h;
-  char file_name[40];
+  char file_name[100];
 } EXAMPLE;
 
 typedef struct sample {
