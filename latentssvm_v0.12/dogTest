@@ -1,14 +1,14 @@
 20 
-../Data/textFeatures/catFeatures/007025.txt 1 
-../Data/textFeatures/catFeatures/007223.txt 1 
-../Data/textFeatures/catFeatures/007753.txt 1 
-../Data/textFeatures/catFeatures/007863.txt 1 
-../Data/textFeatures/catFeatures/007868.txt 1 
-../Data/textFeatures/catFeatures/007974.txt 1 
-../Data/textFeatures/catFeatures/008258.txt 1 
-../Data/textFeatures/catFeatures/008355.txt 1 
-../Data/textFeatures/catFeatures/008442.txt 1 
-../Data/textFeatures/catFeatures/008534.txt 1 
+../Data/textFeatures/dogFeatures/000078.txt 1
+../Data/textFeatures/dogFeatures/000093.txt 1
+../Data/textFeatures/dogFeatures/000140.txt 1
+../Data/textFeatures/dogFeatures/000654.txt 1
+../Data/textFeatures/dogFeatures/000699.txt 1
+../Data/textFeatures/dogFeatures/001145.txt 1
+../Data/textFeatures/dogFeatures/001151.txt 1
+../Data/textFeatures/dogFeatures/001203.txt 1
+../Data/textFeatures/dogFeatures/001225.txt 1
+../Data/textFeatures/dogFeatures/001239.txt 1
 ../Data/textFeatures/negativeFeatures/002459.txt -1 
 ../Data/textFeatures/negativeFeatures/002565.txt -1 
 ../Data/textFeatures/negativeFeatures/002594.txt -1 

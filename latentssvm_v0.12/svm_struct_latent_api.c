@@ -301,7 +301,7 @@ STRUCTMODEL read_struct_model(char *file, STRUCT_LEARN_PARM *sparm) {
 	//fflush(stdout); 
 	/* your code here */
 	FILE *fin;
-	fin = fopen(file, "w");
+	fin = fopen(file, "r");
 	int sz;
 	fscanf(fin, "%d", &sz);
 	sm.sizePsi = sz;
