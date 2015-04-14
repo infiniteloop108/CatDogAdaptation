@@ -17,70 +17,70 @@
 # include "svm_light/svm_common.h"
 
 typedef struct pattern {
-  /*
-    Type definition for input pattern x
-  */
-  float *data;  // concatenation of all the features, dimension*no_of_rects
-  int no_of_rects; // number of such features for each xi, ie no of h
-  int dimension; //Dimension of each feature
+	/*
+	   Type definition for input pattern x
+	   */
+	float *data;  // concatenation of all the features, dimension*no_of_rects
+	int no_of_rects; // number of such features for each xi, ie no of h
+	int dimension; //Dimension of each feature
 } PATTERN;
 
 typedef struct label {
-  /*
-    Type definition for output label y
-  */
-  int class_id;  // +1 means object (Cat or Dog) present, -1 means not present
+	/*
+	   Type definition for output label y
+	   */
+	int class_id;  // +1 means object (Cat or Dog) present, -1 means not present
 } LABEL;
 
 typedef struct latent_var {
-  /*
-    Type definition for latent variable h
-  */
-  int box;	//Bounding box number 
+	/*
+	   Type definition for latent variable h
+	   */
+	int box;	//Bounding box number 
 } LATENT_VAR;
 
 typedef struct example {
-  PATTERN x;
-  LABEL y;
-  LATENT_VAR h;
-  char file_name[100];
+	PATTERN x;
+	LABEL y;
+	LATENT_VAR h;
+	char file_name[100];
 } EXAMPLE;
 
 typedef struct sample {
-  int n;
-  EXAMPLE *examples;
+	int n;
+	EXAMPLE *examples;
 } SAMPLE;
 
 
 typedef struct structmodel {
-  double *w;          /* pointer to the learned weights */
-  MODEL  *svm_model;  /* the learned SVM model */
-  long   sizePsi;     /* maximum number of weights in w */
-  /* other information that is needed for the stuctural model can be
-     added here, e.g. the grammar rules for NLP parsing */
+	double *w;          /* pointer to the learned weights */
+	MODEL  *svm_model;  /* the learned SVM model */
+	long   sizePsi;     /* maximum number of weights in w */
+	/* other information that is needed for the stuctural model can be
+	   added here, e.g. the grammar rules for NLP parsing */
 } STRUCTMODEL;
 
 
 typedef struct struct_learn_parm {
-  double epsilon;              /* precision for which to solve
-				  quadratic program */
-  long newconstretrain;        /* number of new constraints to
-				  accumulate before recomputing the QP
-				  solution */
-  double C;                    /* trade-off between margin and loss */
-  char   custom_argv[20][1000]; /* string set with the -u command line option */
-  int    custom_argc;          /* number of -u command line options */
-  int    slack_norm;           /* norm to use in objective function
-                                  for slack variables; 1 -> L1-norm, 
-				  2 -> L2-norm */
-  int    loss_type;            /* selected loss function from -r
-				  command line option. Select between
-				  slack rescaling (1) and margin
-				  rescaling (2) */
-  int    loss_function;        /* select between different loss
-				  functions via -l command line
-				  option */
-  /* add your own variables */
-  int your_own_variable; 
+	double epsilon;              /* precision for which to solve
+					quadratic program */
+	long newconstretrain;        /* number of new constraints to
+					accumulate before recomputing the QP
+					solution */
+	double C;                    /* trade-off between margin and loss */
+	char   custom_argv[20][1000]; /* string set with the -u command line option */
+	int    custom_argc;          /* number of -u command line options */
+	int    slack_norm;           /* norm to use in objective function
+					for slack variables; 1 -> L1-norm, 
+					2 -> L2-norm */
+	int    loss_type;            /* selected loss function from -r
+					command line option. Select between
+					slack rescaling (1) and margin
+					rescaling (2) */
+	int    loss_function;        /* select between different loss
+					functions via -l command line
+					option */
+	/* add your own variables */
+	int your_own_variable; 
 } STRUCT_LEARN_PARM;
 
