@@ -42,11 +42,11 @@ SAMPLE read_struct_examples(char *file, STRUCT_LEARN_PARM *sparm) {
 		for(int i=0;i<n;++i)
 		{
 			char fileName[100];
-			int mclass;
+			int class;
 			fscanf(fin,"%s", fileName);
-			fscanf(fin,"%d", &mclass);
+			fscanf(fin,"%d", &class);
 			strcpy(sample.examples[i].file_name, fileName);
-			sample.examples[i].y.class_id = mclass;
+			sample.examples[i].y.class_id = class;
 			//Now read the feature vector (x)
 			FILE *data;
 			printf("Loading %s\n", fileName);
@@ -87,8 +87,7 @@ void init_struct_model(SAMPLE sample, STRUCTMODEL *sm, STRUCT_LEARN_PARM *sparm,
 	   */
 	sm->sizePsi = sample.examples[1].x.dimension; /* replace with appropriate number */
 	/* your code here*/
-	sm->w = (double *) malloc(sizeof(double) * (sm->sizePsi+1));
-	sm->svm_model = NULL;
+	// sm->w = (double *) malloc(sizeof(double) * (sm->sizePsi+1));
 }
 
 void init_latent_variables(SAMPLE *sample, LEARN_PARM *lparm, STRUCTMODEL *sm, STRUCT_LEARN_PARM *sparm) {
@@ -124,9 +123,12 @@ SVECTOR *psi(PATTERN x, LABEL y, LATENT_VAR h, STRUCTMODEL *sm, STRUCT_LEARN_PAR
 		if(fabs(x.data[start+i]) > 1.0e-6)
 			numNonZeroes++;
 	}
+	//if(y.class_id==-1)numNonZeroes = 0;
 	WORD *words = (WORD *) malloc(sizeof(WORD)*(numNonZeroes+1));	//extra for 0.0
 	assert(words != NULL);
 	int j=0;
+	//if(y.class_id !=-1)
+	//{
 	for(int i=0;i<sz;++i)
 	{
 		if(fabs(x.data[start+i])> 1.0e-6)
@@ -136,6 +138,7 @@ SVECTOR *psi(PATTERN x, LABEL y, LATENT_VAR h, STRUCTMODEL *sm, STRUCT_LEARN_PAR
 			j++;
 		}
 	}
+	//}
 	words[j].wnum=0;
 	words[j].weight = 0.0;
 	fvec = create_svector(words, "", 1);
@@ -282,10 +285,11 @@ void write_struct_model(char *file, STRUCTMODEL *sm, STRUCT_LEARN_PARM *sparm) {
 	/*
 	   Writes the learned weight vector sm->w to file after training. 
 	   */
-	//printf("HERE write");
-	//fflush(stdout);
+	printf("Writing Model");
+	fflush(stdout);
 	FILE *fout;
 	fout = fopen(file, "w");
+	assert(fout != NULL);
 	fprintf(fout, "%ld\n", sm->sizePsi);
 	for(int i=0;i<sm->sizePsi;++i)
 		fprintf(fout, "%0.6lf\n", sm->w[i+1]);
