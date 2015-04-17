@@ -42,11 +42,11 @@ SAMPLE read_struct_examples(char *file, STRUCT_LEARN_PARM *sparm) {
 		for(int i=0;i<n;++i)
 		{
 			char fileName[100];
-			int class;
+			int mclass;
 			fscanf(fin,"%s", fileName);
-			fscanf(fin,"%d", &class);
+			fscanf(fin,"%d", &mclass);
 			strcpy(sample.examples[i].file_name, fileName);
-			sample.examples[i].y.class_id = class;
+			sample.examples[i].y.class_id = mclass;
 			//Now read the feature vector (x)
 			FILE *data;
 			printf("Loading %s\n", fileName);
@@ -87,7 +87,8 @@ void init_struct_model(SAMPLE sample, STRUCTMODEL *sm, STRUCT_LEARN_PARM *sparm,
 	   */
 	sm->sizePsi = sample.examples[1].x.dimension; /* replace with appropriate number */
 	/* your code here*/
-	// sm->w = (double *) malloc(sizeof(double) * (sm->sizePsi+1));
+	sm->w = (double *) malloc(sizeof(double) * (sm->sizePsi+1));
+	sm->svm_model = NULL;
 }
 
 void init_latent_variables(SAMPLE *sample, LEARN_PARM *lparm, STRUCTMODEL *sm, STRUCT_LEARN_PARM *sparm) {

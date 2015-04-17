@@ -609,7 +609,6 @@ MATRIX *realloc_matrix(MATRIX *matrix, int n, int m)
    not initialized. */
 {
   int i;
-
   if(!matrix) 
     return(create_matrix(n,m));
 
